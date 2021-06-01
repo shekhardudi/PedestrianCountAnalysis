@@ -14,7 +14,7 @@ Step 4 - It puts the transformed data in a csv format to another S3 bucket - ste
 Step 5 - It puts the transformed data in postgres databases - rds-sh with datbase name MyDB
 
 # Architecture
-![](img/Architecture.png)
+![](img/Arch.png)
 
 # Pre-Requisites
 ```sh
