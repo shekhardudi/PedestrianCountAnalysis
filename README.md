@@ -57,6 +57,8 @@ terraform init
 ```tr
 terraform apply
 ```
+Type 'yes' when prompted
+
 3. Activate virtual environment -
 ```virt
 source .venv/bin/activate
@@ -86,5 +88,4 @@ python CleanBuckets.py
 ```clean
 terraform destroy
 ```
-
-THANK YOU!
+Type 'yes' when prompted
