@@ -1,15 +1,17 @@
-from Process.Glue import Glue
-from CountingSystem.S3 import S3
-import config
 import os
+from Process.GluePorcessor import GlueProcessor
+from Process.S3Processor import S3Processor
+import config
+
+
 
 def upload_required_data():
-
+    print("Uploading Count File. This will take time kindly wait")
     res = s3_obj.upload(file_path=os.path.join('data','Pedestrian_Counting_System_-_Monthly__counts_per_hour_.csv'),
                     bucket=config.source_data_bucket)
     if res:
         print('Pedestrian Count Csv upload successful')
-
+        print("Uploading Sensor File")
         res = s3_obj.upload(file_path=os.path.join('data','Pedestrian_Counting_System_-_Sensor_Locations.csv'),
                 bucket=config.source_data_bucket)
         if res:
@@ -30,9 +32,10 @@ def upload_required_data():
         exit(1)
 
 def run_crawler():
-    glue_obj.run_crawler(config.crawler_name)
-    status = glue_obj.get_crawler_status(config.crawler_name)
-
+    res = glue_obj.run_crawler(crawler_name=config.crawler_name)
+    status = False
+    if res:
+        status = glue_obj.get_crawler_status(crawler_name=config.crawler_name)
     if status:
         print('Crawler Run Complete')
     else:
@@ -40,6 +43,7 @@ def run_crawler():
         exit(1)  
 
 def run_glue_job():
+    print('Starting Glue Job')
     job_run = glue_obj.run_job(config.glue_job_name)
     resp = glue_obj.get_job_status(job_name= config.glue_job_name,job_run=job_run)
     if resp:
@@ -48,8 +52,8 @@ def run_glue_job():
         print("Glue Job Failed")
 
 if __name__ == '__main__':
-    s3_obj = S3()
-    glue_obj = Glue()
+    s3_obj = S3Processor()
+    glue_obj = GlueProcessor()
 
     print("Process Started")
     

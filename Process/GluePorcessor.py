@@ -7,13 +7,13 @@ from botocore.exceptions import NoCredentialsError
 import time
 
 
-class Glue:
+class GlueProcessor:
     def __init__(self):
         self.glue_client = boto3.client('glue')
 
     def run_crawler(self, crawler_name): 
         try:
-            self.glue_client.start_crawler(crawler_name)
+            self.glue_client.start_crawler(Name=crawler_name)
         except Exception as e:
             print("Exception while running the Crwaler")
             print(e)
@@ -26,20 +26,24 @@ class Glue:
         return myNewJobRun
 
     def get_crawler_status(self, crawler_name):
-        count=0
-        tries = 100
-        response = False
-        while count<tries:
-            time.sleep(30)
-            crawler = self.glue_client.get_crawler(crawler_name)
-            crawler_status = crawler['LastCrawl']['Status']
-            print(crawler_status)
-            if "SUCCEEDED" == crawler_status:
-                response = True
-                break
+        try:
+            count=0
+            tries = 100
+            response = False
+            while count<tries:
+                time.sleep(30)
+                crawler = self.glue_client.get_crawler(Name=crawler_name)
+                crawler_status = crawler['Crawler']['LastCrawl']['Status']
+                print('Crawler status - {}'.format(crawler_status))
+                if "SUCCEEDED" == crawler_status:
+                    response = True
+                    break
 
-            elif "FAILED" == crawler_status or "CANCELLED" ==crawler_status:
-                break
+                elif "FAILED" == crawler_status or "CANCELLED" ==crawler_status:
+                    break
+        except Exception as e:
+            print('Error in getting crawler status')
+            print(e)
 
             
         return response
@@ -51,7 +55,8 @@ class Glue:
         while counter < max_tries:
             time.sleep(30)
             status = self.glue_client.get_job_run(JobName=job_name, RunId=job_run['JobRunId'])
-            print(status['JobRun']['JobRunState'])
+            current_status = status['JobRun']['JobRunState']
+            print('glue job status - {}'.format(current_status))
 
             if "SUCCEEDED" == status['JobRun']['JobRunState']:
                 response = True
@@ -59,3 +64,7 @@ class Glue:
             elif "FAILED" == status['JobRun']['JobRunState'] or "CANCELLED" ==status['JobRun']['JobRunState']:
                 break
         return response
+
+if __name__ == '__main__':
+    g = GlueProcessor()
+    g.get_crawler_status('stepper-crawler-sh')

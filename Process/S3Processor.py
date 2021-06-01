@@ -1,14 +1,11 @@
-import pandas as pd
 import os
-import logging
 import boto3
 from botocore.exceptions import ClientError
 from botocore.exceptions import NoCredentialsError
 import time
-from CountingSystem import config
 
 
-class S3:
+class S3Processor:
 
     def __init__(self):
         self.s3 = boto3.client('s3')
@@ -42,8 +39,4 @@ class S3:
                 Bucket=bucket_name,
             )
 
-if __name__ == '__main__':
-    s = S3()
-    s.delete_all_obj(config.script_bucket)
-    s.delete_all_obj(config.source_data_bucket)
-    s.delete_all_obj(config.output_data_bucket)
+
