@@ -31,7 +31,7 @@ Download the Count file from  -
 Download the Sensor Data from  -   
 [Pedestrian-Counting-System-Sensor](https://data.melbourne.vic.gov.au/Transport/Pedestrian-Counting-System-Sensor-Locations/h57g-5234)
 
-Replace the files the data folder of the project.
+Replace the files the data folder of the project.  
 Note - Please don't change the file names
 # Setup - 
 1. Configure Aws Credentials - 
