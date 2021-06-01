@@ -34,14 +34,10 @@ Download the Sensor Data from  -
 Replace the files the data folder of the project.
 
 # Setup - 
-1. configure aws credentials - 
+1. Configure Aws Credentials - 
 ```aws
 aws configure  
-```
-AWS Access Key ID [None]: your access key id XXXXX  
-AWS Secret Access Key [None]: your secret access key  XXXXX  
-Default region name [None]: ap-southeast-2  
-Default output format [None]: json  
+```  
 
 2. Install terraform  - 
     [How to install terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
@@ -76,3 +72,5 @@ python main.py
 ```
 
 # Output
+1. The Output CSVs are stored in S3 - 'step-count-output-bucket-sh'
+2. In postgres 'rds-sh' with datbase name 'MyDB'
