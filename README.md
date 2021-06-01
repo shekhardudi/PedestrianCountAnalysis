@@ -35,12 +35,13 @@ Replace the files the data folder of the project.
 
 # Setup - 
 1. configure aws credentials - 
+```sh
     $ aws configure  
-
-    AWS Access Key ID [None]: your access key id XXXXX
-    AWS Secret Access Key [None]: your secret access key  XXXXX
-    Default region name [None]: ap-southeast-2
-    Default output format [None]: json
+```  
+    AWS Access Key ID [None]: your access key id XXXXX  
+    AWS Secret Access Key [None]: your secret access key  XXXXX  
+    Default region name [None]: ap-southeast-2  
+    Default output format [None]: json  
 
 2. Install terraform  - 
     Follow - https://learn.hashicorp.com/tutorials/terraform/install-cli
