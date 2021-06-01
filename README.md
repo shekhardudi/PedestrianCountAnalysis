@@ -17,9 +17,11 @@ Step 5 - It puts the transformed data in postgres databases - rds-sh with datbas
 ![](img/Architecture.png)
 
 # Pre-Requisites
+```sh
 - AWS Credentials
 - Terraform
 - python3.x
+```
 
 # Data Files - 
 ## !! This is important !!
@@ -57,7 +59,7 @@ Replace the files the data folder of the project.
 4. Install dependancies - 
     $ pip install -r requirements.txt
 
-5.  Run the __init__.py script
-    $ python __init__.py 
+5.  Run the main.py script
+    $ python main.py 
 
 # Output
