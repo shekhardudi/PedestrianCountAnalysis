@@ -36,35 +36,43 @@ Replace the files the data folder of the project.
 # Setup - 
 1. configure aws credentials - 
 ```aws
- aws configure  
+aws configure  
 ```
-    AWS Access Key ID [None]: your access key id XXXXX  
-    AWS Secret Access Key [None]: your secret access key  XXXXX  
-    Default region name [None]: ap-southeast-2  
-    Default output format [None]: json  
+AWS Access Key ID [None]: your access key id XXXXX  
+AWS Secret Access Key [None]: your secret access key  XXXXX  
+Default region name [None]: ap-southeast-2  
+Default output format [None]: json  
 
 2. Install terraform  - 
     [How to install terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 
 3. Create virtual environment in the project root folder(optional) -   
-    ```virtual
-    python3 -m venv .venv
-    ```
+```virtual
+python3 -m venv .venv
+```
 
 # Run - 
-1. Initiate terraform in the project root folder - 
-    $ terraform init
+1. Initiate terraform in the project root folder -
+```tr
+terraform init
+```
 
 2. Deploy the infra to aws  - 
-    $ terraform apply
-
+```tr
+terraform apply
+```
 3. Activate virtual environment -
-    $ source .venv/bin/activate
-
+```virt
+source .venv/bin/activate
+```
 4. Install dependancies - 
-    $ pip install -r requirements.txt
+```pip
+pip install -r requirements.txt
+```
 
-5.  Run the main.py script
-    $ python main.py 
+5. Run the main.py script - 
+```main
+python main.py 
+```
 
 # Output
