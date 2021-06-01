@@ -28,7 +28,7 @@ class GlueProcessor:
     def get_crawler_status(self, crawler_name):
         try:
             count=0
-            tries = 10
+            tries = 60
             response = False
             while count<tries:
                 time.sleep(30)
@@ -53,7 +53,7 @@ class GlueProcessor:
 
     def get_job_status(self, job_name, job_run):
         counter = 0
-        max_tries = 10
+        max_tries = 60
         response = False
         while counter < max_tries:
             time.sleep(30)
