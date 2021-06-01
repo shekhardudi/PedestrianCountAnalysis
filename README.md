@@ -74,3 +74,17 @@ python main.py
 # Output
 1. The Output CSVs are stored in S3 - 'step-count-output-bucket-sh'
 2. In postgres 'rds-sh' with datbase name 'MyDB'
+
+# Clean-Up
+For cleaning up resources created follow these two steps - 
+
+1. Run CleanBuckets.py
+```clean
+python CleanBuckets.py
+```
+2. Clean Infra from AWS - 
+```clean
+terraform destroy
+```
+
+THANK YOU!
