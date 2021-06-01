@@ -1,0 +1,5 @@
+source_data_bucket = "step-count-data-bucket-sh"
+output_data_bucket = "step-count-output-bucket-sh"
+script_bucket = "step-script-bucket-sh"
+crawler_name = "stepper-crawler-sh"
+glue_job_name = "count-steps-job-sh"
