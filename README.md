@@ -37,14 +37,14 @@ Replace the files the data folder of the project.
 1. configure aws credentials - 
 ```aws
  aws configure  
-```  
+```
     AWS Access Key ID [None]: your access key id XXXXX  
     AWS Secret Access Key [None]: your secret access key  XXXXX  
     Default region name [None]: ap-southeast-2  
     Default output format [None]: json  
 
 2. Install terraform  - 
-    Follow - https://learn.hashicorp.com/tutorials/terraform/install-cli
+    [How to install terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 
 3. Create virtual environment in the project root folder(optional)
     $ python3 -m venv .venv
