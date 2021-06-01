@@ -28,19 +28,22 @@ class GlueProcessor:
     def get_crawler_status(self, crawler_name):
         try:
             count=0
-            tries = 100
+            tries = 10
             response = False
             while count<tries:
                 time.sleep(30)
-                crawler = self.glue_client.get_crawler(Name=crawler_name)
-                crawler_status = crawler['Crawler']['LastCrawl']['Status']
-                print('Crawler status - {}'.format(crawler_status))
-                if "SUCCEEDED" == crawler_status:
-                    response = True
-                    break
+                try:
+                    crawler = self.glue_client.get_crawler(Name=crawler_name)
+                    crawler_status = crawler['Crawler']['LastCrawl']['Status']
+                    print('Crawler status - {}'.format(crawler_status))
+                    if "SUCCEEDED" == crawler_status:
+                        response = True
+                        break
 
-                elif "FAILED" == crawler_status or "CANCELLED" ==crawler_status:
-                    break
+                    elif "FAILED" == crawler_status or "CANCELLED" ==crawler_status:
+                        break
+                except KeyError:
+                    print("Waiting for crawler to finish")
         except Exception as e:
             print('Error in getting crawler status')
             print(e)
@@ -50,7 +53,7 @@ class GlueProcessor:
 
     def get_job_status(self, job_name, job_run):
         counter = 0
-        max_tries = 100
+        max_tries = 10
         response = False
         while counter < max_tries:
             time.sleep(30)
@@ -65,6 +68,12 @@ class GlueProcessor:
                 break
         return response
 
+    def check(self):
+        crawler = self.glue_client.get_crawler('stepper-crawler-sh')
+        crawler_status = crawler['Crawler']['LastCrawl']['Status']
+        print('Crawler status - {}'.format(crawler_status))
+
 if __name__ == '__main__':
     g = GlueProcessor()
-    g.get_crawler_status('stepper-crawler-sh')
+    # g.get_crawler_status('stepper-crawler-sh')
+    g.check()
