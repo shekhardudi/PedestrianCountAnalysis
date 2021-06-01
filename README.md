@@ -25,11 +25,11 @@ Step 5 - It puts the transformed data in postgres databases - rds-sh with datbas
 
 # Data Files - 
 ## !! This is important !!
-Download the Count file from  - 
-[Pedestrian-Counting-System-Monthly-Counts] https://data.melbourne.vic.gov.au/Transport/Pedestrian-Counting-System-Monthly-counts-per-hour/b2ak-trbp
+Download the Count file from  -  
+![Pedestrian-Counting-System-Monthly-Counts] https://data.melbourne.vic.gov.au/Transport/Pedestrian-Counting-System-Monthly-counts-per-hour/b2ak-trbp
 
 Download the Sensor Data from  -   
-[Pedestrian-Counting-System-Sensor] https://data.melbourne.vic.gov.au/Transport/Pedestrian-Counting-System-Sensor-Locations/h57g-5234
+![Pedestrian-Counting-System-Sensor] https://data.melbourne.vic.gov.au/Transport/Pedestrian-Counting-System-Sensor-Locations/h57g-5234
 
 Replace the files the data folder of the project.
 
