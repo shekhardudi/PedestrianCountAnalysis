@@ -36,7 +36,7 @@ Replace the files the data folder of the project.
 # Setup - 
 1. configure aws credentials - 
 ```sh
-    $ aws configure  
+    aws configure  
 ```  
     AWS Access Key ID [None]: your access key id XXXXX  
     AWS Secret Access Key [None]: your secret access key  XXXXX  
