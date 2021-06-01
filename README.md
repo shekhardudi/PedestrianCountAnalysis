@@ -23,7 +23,7 @@ Step 5 - It puts the transformed data in postgres databases - rds-sh with datbas
 - python3.x
 ```
 
-**Follow the steps below after cloning or downloading the repo zip**
+## Follow the steps below after cloning or downloading the repo zip - 
     
 # Data Files (Replace From Website)- 
 ## **!! _This is important_ !!** -
