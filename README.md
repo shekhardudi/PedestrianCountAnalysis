@@ -46,8 +46,10 @@ Replace the files the data folder of the project.
 2. Install terraform  - 
     [How to install terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 
-3. Create virtual environment in the project root folder(optional)
-    $ python3 -m venv .venv
+3. Create virtual environment in the project root folder(optional) -   
+    ```virtual
+    python3 -m venv .venv
+    ```
 
 # Run - 
 1. Initiate terraform in the project root folder - 
