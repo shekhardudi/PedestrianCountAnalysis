@@ -20,7 +20,7 @@ Step 5 - It puts the transformed data in postgres databases - rds-sh with datbas
 ```sh
 - AWS Credentials
 - Terraform
-- python3.x
+- python3.7
 ```
 
 ## Follow the steps below after cloning or downloading the repo zip - 
